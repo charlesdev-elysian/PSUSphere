@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-_en-2!q^3_u26^53_0lvgj0gu)ucq5o8*+ja7jnno8^ul=07v)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['psusphere.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['charlesdorero.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "studentorg",  # ✅ Make sure this is included!
+    "widget_tweaks",
 ]
 
 
