@@ -1,98 +1,168 @@
-Educational Institution Administration System
-A Django-based web application for managing colleges, programs, students, and organizations
+# 🎓 PSUSphere - Educational Institution Management System
 
-📝 Description
-The Educational Institution Administration System is a comprehensive web application designed to automate and streamline administrative workflows in educational institutions. Built with Django, it centralizes the management of colleges, academic programs, student organizations, and student records into a single intuitive platform.
+![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 
-✨ Key Features
-🏛️ College Management
-Create, view, update, and delete college records
+A modern Django web platform revolutionizing educational administration through digital transformation.
 
-Associate academic programs and student organizations with specific colleges
+## 🌟 Table of Contents
+- [Features](#-features)
+- [Screenshots](#-screenshots)
+- [Installation](#-installation)
+- [Configuration](#-configuration)
+- [Usage](#-usage)
+- [API Endpoints](#-api-endpoints)
+- [Tech Stack](#-tech-stack)
+- [Development](#-development)
+- [Testing](#-testing)
+- [Deployment](#-deployment)
+- [Team](#-team)
+- [License](#-license)
 
-🎓 Program Management
-Manage all academic programs offered by the institution
+## ✨ Features
 
-Track program details including name, description, and affiliated college
+### 🏛️ Institutional Management
+| Feature | Description |
+|---------|-------------|
+| College Dashboard | Centralized view of all colleges |
+| Program Catalog | Manage academic programs |
+| Department Setup | Organize by departments and faculties |
 
-👥 Student Management
-Maintain comprehensive student records
+### 👥 Student Lifecycle
+| Feature | Description |
+|---------|-------------|
+| Student Profiles | Complete academic/personal records |
+| Enrollment System | Course registration workflow |
+| Academic Tracking | Progress monitoring and reporting |
 
-Track personal details, academic information, and program enrollment
+### 🏢 Organization Tools
+```mermaid
+graph TD
+    A[Student] -->|Joins| B(Organization)
+    B --> C[Events]
+    B --> D[Members]
+    B --> E[Documents]
 
-Advanced search and filtering capabilities
+### 🚀 Installation
 
-🏢 Organization Management
-Oversee all student organizations and clubs
+Prerequisites
+Python 3.10+
 
-Manage organization details and affiliations
+PostgreSQL 14+
 
-🤝 Membership Management
-Add/remove students from organizations
+Node.js (for frontend assets)
 
-Track membership join dates and history
+### Setup
 
-🎯 Purpose
-This system eliminates manual administrative processes by providing:
-✅ A centralized database for all institutional data
-✅ Intuitive interfaces for efficient data management
-✅ Streamlined workflows for administrators
-✅ Improved organization and operational efficiency
-
-👨‍💻 Authors
-Charles Jazon Dorero
-
-Mark Oseas Eray
-
-📥 Installation
-Clone the repository:
-
-bash
-Copy
+# Clone repository
 git clone https://github.com/charlesdev-elysian/PSUSphere.git
-Set up a virtual environment:
+cd PSUSphere
 
-bash
-Copy
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
-Install dependencies:
+# Initialize environment
+python -m venv .venv
+source .venv/bin/activate  # Linux/Mac
+# .venv\Scripts\activate  # Windows
 
-bash
-Copy
-pip install -r requirements.txt
-Run migrations:
+# Install dependencies
+pip install -r requirements/dev.txt
 
-bash
-Copy
-python manage.py migrate
-Start the server:
+# Configure environment
+cp .env.example .env
+nano .env  # Edit configuration
 
-bash
-Copy
+### ⚙️ Configuration
+
+# Sample settings.py
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'psusphere_db',
+        'USER': 'admin',
+        'PASSWORD': 'securepassword123',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+### 💻 Usage
+# Run development server
 python manage.py runserver
-👨‍💻 Authors
-Charles Jazon Dorero
 
-Mark Oseas Eray
+# Create admin user
+python manage.py createsuperuser
 
-📜 License
-This project is licensed under the MIT License.
+# Run background tasks
+celery -A core worker -l info
 
-🔗 Links
-Issue Tracker
+### 🔌 API Endpoints
 
-Contribution Guidelines
 
-This version:
+Endpoint	Method	Description
+/api/students/	GET	List all students
+/api/colleges/	POST	Create new college
+/api/enroll/	PUT	Update enrollment
 
-Uses clear headers and consistent formatting.
+### 🛠️ Tech Stack
+Backend:
 
-Highlights benefits and technical details succinctly.
+Django 4.2
 
-Includes installation steps for easy setup.
+Django REST Framework
 
-Adds a license and links section for completeness.
+Celery
 
-Let me know if you'd like to emphasize any specific feature further! 🎯
+Frontend:
+
+Bootstrap 5
+
+HTMX
+
+Chart.js
+
+Database:
+
+PostgreSQL
+
+Redis (caching)
+
+### 🧑‍💻 Development
+
+# Run linters
+flake8 .
+black --check .
+
+# Generate requirements
+pip freeze > requirements.txt
+
+# DB migrations
+python manage.py makemigrations
+python manage.py migrate
+
+### 🧪 Testing
+
+# Run all tests
+python manage.py test
+
+# Generate coverage
+coverage run manage.py test
+coverage report -m
+
+### 🚀 Deployment
+# Production setup
+pip install -r requirements/prod.txt
+
+# Collect static
+python manage.py collectstatic
+
+# Gunicorn
+gunicorn core.wsgi:application --bind 0.0.0.0:8000
+
+###B 👥 Team
+
+
+Role	Member	Contact
+Lead Developer	Charles Jazon Dorero	@charlesdev
+UI/UX Designer	Mark Oseas Eray	@markdesign
+
