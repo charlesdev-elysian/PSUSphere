@@ -31,8 +31,8 @@ urlpatterns = [
     path('radar-chart-college/', radarStudenCountEveryCollege, name='radar-chart-college'),
     path('program-polar-chart/', programPolarchart, name='program-polar-chart'),
     path('html-legends-chart/', htmlLegendsChart, name='html-legends-chart'),
-    
-    
+
+
     path('organization_list/', OrganizationList.as_view(), name='organization-list'),
     path('organization_list/add/', OrganizationCreateView.as_view(), name='organization-add'),
     path('organization_list/<pk>/', OrganizationUpdateView.as_view(), name='organization-update'),
@@ -58,5 +58,5 @@ urlpatterns = [
 
 
 
-    
+
 ]
