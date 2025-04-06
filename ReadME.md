@@ -43,3 +43,56 @@ This system eliminates manual administrative processes by providing:
 Charles Jazon Dorero
 
 Mark Oseas Eray
+
+📥 Installation
+Clone the repository:
+
+bash
+Copy
+git clone https://github.com/charlesdev-elysian/PSUSphere.git
+Set up a virtual environment:
+
+bash
+Copy
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
+Install dependencies:
+
+bash
+Copy
+pip install -r requirements.txt
+Run migrations:
+
+bash
+Copy
+python manage.py migrate
+Start the server:
+
+bash
+Copy
+python manage.py runserver
+👨‍💻 Authors
+Charles Jazon Dorero
+
+Mark Oseas Eray
+
+📜 License
+This project is licensed under the MIT License.
+
+🔗 Links
+Issue Tracker
+
+Contribution Guidelines
+
+This version:
+
+Uses clear headers and consistent formatting.
+
+Highlights benefits and technical details succinctly.
+
+Includes installation steps for easy setup.
+
+Adds a license and links section for completeness.
+
+Let me know if you'd like to emphasize any specific feature further! 🎯
